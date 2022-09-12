@@ -1,0 +1,5 @@
+card/__pycache__/
+card/migrations/
+mysite/__pycache__/
+mysite/settings.py
+db.sqlite3
