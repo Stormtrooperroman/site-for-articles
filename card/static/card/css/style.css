@@ -1,0 +1,15 @@
+#article_title {
+    font-size: xxx-large;
+    max-width: 25em;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.editPanel {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: rgba(213, 213, 215, 0.75);
+    padding: 2em;
+    z-index: 6;
+}
