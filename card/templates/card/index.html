@@ -1,10 +1,18 @@
 {% extends "card/base_generic.html" %}
+{% load static %}
 
 {% block title %}
     <title>Главная страница</title>
 {% endblock %}
 
 {% block content %}
-    <h1>Привет. Я, Лидер Роман.</h1> 
-    <p>Владею следующими языками: Python, C/C++, JavaScript, PHP.</p>
+    <h1>Привет. Я RomanL.</h1>
+    <h4>Что это за сайт?</h4>
+    <p>Это сайт с открытым исходом кодом, который позволяет любому писать статьи используя $ \LaTeX $. Вы можете развернуть у себя на сервере(Как минимум я на это надеюсь).</p>
+    <p>Я же в свою очередь буду тут писать прикольные статьи связанные с математикой и CTF.</p>
+{% endblock %}
+
+
+{% block script %}
+    <script src="{% static 'card/js/article.js' %}"></script>
 {% endblock %}

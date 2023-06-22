@@ -6,17 +6,28 @@
 {% endblock %}
 
 {% block style %}
-    <link rel="stylesheet" href="{% static 'card/style.css' %}">
+    <link rel="stylesheet" href="{% static 'card/css/style.css' %}">
 {% endblock %}
 
 {% block content %}
+<div id="some">
     <div class="row justify-content-center">
-        <h1 id="article_title">{{ article.title }}</h1>
+        <div class="col col-lg-auto text-center">
+            <h1 id="article_title">{{ article.title }}</h1>
+        </div>
+        
     </div>
-    {{ article.text }}
+    <div class="row justify-content-center mb-5">
+        <div class="col col-lg-10" id="article_text">
+            {% autoescape off %}
+                {{ article.text }}
+            {% endautoescape %}
+        </div>
+    </div>
+</div>
+    
 {% endblock %}
 
 {% block script %}
-    <script src="{% static 'card/LaTex_settings.js' %}"></script>
-    <script src="{% static 'card/article.js' %}"></script>
+    <script src="{% static 'card/js/article.js' %}"></script>
 {% endblock %}

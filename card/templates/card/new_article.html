@@ -6,8 +6,8 @@
 {% endblock %}
 
 {% block style %}
-    <link rel="stylesheet" href="{% static 'card/style.css' %}">
-    <link rel="stylesheet" href="{% static 'card/math.css' %}">
+    <link rel="stylesheet" href="{% static 'card/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'card/css/math.css' %}">
 {% endblock %}
 
 
@@ -27,57 +27,51 @@
     <div class="row justify-content-center">
         <textarea class="form-control" id="article_title" rows="1"></textarea>
     </div>
-    <div id="math" class="">
-
-        <div contentEditable="true" class="tex2jax_ignore" name="some" id="math_input"></div>
-
-        <div id="math_look"></div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <button type="button" class="btn btn-primary" id="save">
-                Сохранить
-            </button>
-        </div>
-    </div>
 
 
-
-    <form name="compForm">
-        <div id="toolBar1">
-        <select onchange="formatDoc('formatblock',this[this.selectedIndex].value);this.selectedIndex=0;">
-        <option selected>- формат -</option>
-        <option value="h1">Title 1 &lt;h1&gt;</option>
-        <option value="h2">Title 2 &lt;h2&gt;</option>
-        <option value="h3">Title 3 &lt;h3&gt;</option>
-        <option value="h4">Title 4 &lt;h4&gt;</option>
-        <option value="h5">Title 5 &lt;h5&gt;</option>
-        <option value="h6">Подзаголовок &lt;h6&gt;</option>
-        </select>
-        <select onchange="formatDoc('fontname',this[this.selectedIndex].value);this.selectedIndex=0;">
-        <option class="heading" selected>- шрифт -</option>
-        <option>Arial</option>
-        <option>Arial Black</option>
-        <option>Courier New</option>
-        <option>Times New Roman</option>
-        </select>
-        <select onchange="formatDoc('fontsize',this[this.selectedIndex].value);this.selectedIndex=0;">
-        <option class="heading" selected>- размер -</option>
-        <option value="1">Малюсенький</option>
-        <option value="2">Маленький</option>
-        <option value="3">Нормальный</option>
-        <option value="4">Большеват</option>
-        <option value="5">Большой</option>
-        <option value="6">Большущий</option>
-        <option value="7">Огромный</option>
-        </select>
-        <select onchange="formatDoc('forecolor',this[this.selectedIndex].value);this.selectedIndex=0;">
-        <option class="heading" selected>- цвет -</option>
-        <option value="red">Красный</option>
-        <option value="blue">Синий</option>
-        <option value="green">Зелёный</option>
-        <option value="black">Чёрный</option>
-        </select>
+    <form class="editPanel" name="compForm">
+        <div class="row" id="toolBar1">
+            <div class="col">
+                <select class="form-select" onchange="formatDoc('formatblock',this[this.selectedIndex].value);this.selectedIndex=0;">
+                    <option selected>- формат -</option>
+                    <option value="h1">Title 1 &lt;h1&gt;</option>
+                    <option value="h2">Title 2 &lt;h2&gt;</option>
+                    <option value="h3">Title 3 &lt;h3&gt;</option>
+                    <option value="h4">Title 4 &lt;h4&gt;</option>
+                    <option value="h5">Title 5 &lt;h5&gt;</option>
+                    <option value="h6">Подзаголовок &lt;h6&gt;</option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-select" onchange="formatDoc('fontname',this[this.selectedIndex].value);this.selectedIndex=0;">
+                    <option class="heading" selected>- шрифт -</option>
+                    <option>Arial</option>
+                    <option>Arial Black</option>
+                    <option>Courier New</option>
+                    <option>Times New Roman</option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-select" onchange="formatDoc('fontsize',this[this.selectedIndex].value);this.selectedIndex=0;">
+                    <option class="heading" selected>- размер -</option>
+                    <option value="1">Малюсенький</option>
+                    <option value="2">Маленький</option>
+                    <option value="3">Нормальный</option>
+                    <option value="4">Большеват</option>
+                    <option value="5">Большой</option>
+                    <option value="6">Большущий</option>
+                    <option value="7">Огромный</option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-select" onchange="formatDoc('forecolor',this[this.selectedIndex].value);this.selectedIndex=0;">
+                    <option class="heading" selected>- цвет -</option>
+                    <option value="red">Красный</option>
+                    <option value="blue">Синий</option>
+                    <option value="green">Зелёный</option>
+                    <option value="black">Чёрный</option>
+                </select>
+            </div>
         </div>
         <div id="toolBar2">
         <img class="intLink" title="Удалить форматирование" onclick="formatDoc('removeFormat')" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAAd0SU1FB9oECQMCKPI8CIIAAAAIdEVYdENvbW1lbnQA9syWvwAAAuhJREFUOMtjYBgFxAB501ZWBvVaL2nHnlmk6mXCJbF69zU+Hz/9fB5O1lx+bg45qhl8/fYr5it3XrP/YWTUvvvk3VeqGXz70TvbJy8+Wv39+2/Hz19/mGwjZzuTYjALuoBv9jImaXHeyD3H7kU8fPj2ICML8z92dlbtMzdeiG3fco7J08foH1kurkm3E9iw54YvKwuTuom+LPt/BgbWf3//sf37/1/c02cCG1lB8f//f95DZx74MTMzshhoSm6szrQ/a6Ir/Z2RkfEjBxuLYFpDiDi6Af///2ckaHBp7+7wmavP5n76+P2ClrLIYl8H9W36auJCbCxM4szMTJac7Kza////R3H1w2cfWAgafPbqs5g7D95++/P1B4+ECK8tAwMDw/1H7159+/7r7ZcvPz4fOHbzEwMDwx8GBgaGnNatfHZx8zqrJ+4VJBh5CQEGOySEua/v3n7hXmqI8WUGBgYGL3vVG7fuPK3i5GD9/fja7ZsMDAzMG/Ze52mZeSj4yu1XEq/ff7W5dvfVAS1lsXc4Db7z8C3r8p7Qjf///2dnZGxlqJuyr3rPqQd/Hhyu7oSpYWScylDQsd3kzvnH738wMDzj5GBN1VIWW4c3KDon7VOvm7S3paB9u5qsU5/x5KUnlY+eexQbkLNsErK61+++VnAJcfkyMTIwffj0QwZbJDKjcETs1Y8evyd48toz8y/ffzv//vPP4veffxpX77z6l5JewHPu8MqTDAwMDLzyrjb/mZm0JcT5Lj+89+Ybm6zz95oMh7s4XbygN3Sluq4Mj5K8iKMgP4f0////fv77//8nLy+7MCcXmyYDAwODS9jM9tcvPypd35pne3ljdjvj26+H2dhYpuENikgfvQeXNmSl3tqepxXsqhXPyc666s+fv1fMdKR3TK72zpix8nTc7bdfhfkEeVbC9KhbK/9iYWHiErbu6MWbY/7//8/4//9/pgOnH6jGVazvFDRtq2VgiBIZrUTIBgCk+ivHvuEKwAAAAABJRU5ErkJggg==">
@@ -91,11 +85,54 @@
         <img class="intLink" title="Пунктирный список" onclick="formatDoc('insertunorderedlist');" src="data:image/gif;base64,R0lGODlhFgAWAMIGAAAAAB1ChF9vj1iE33mOrqezxv///////yH5BAEAAAcALAAAAAAWABYAAAMyeLrc/jDKSesppNhGRlBAKIZRERBbqm6YtnbfMY7lud64UwiuKnigGQliQuWOyKQykgAAOw==" />
         <img class="intLink" title="Гиперссылка" onclick="var sLnk=prompt('Введите ваш URL','http:\/\/');if(sLnk&&sLnk!=''&&sLnk!='http://'){formatDoc('createlink',sLnk)}" src="data:image/gif;base64,R0lGODlhFgAWAOMKAB1ChDRLY19vj3mOrpGjuaezxrCztb/I19Ha7Pv8/f///////////////////////yH5BAEKAA8ALAAAAAAWABYAAARY8MlJq7046827/2BYIQVhHg9pEgVGIklyDEUBy/RlE4FQF4dCj2AQXAiJQDCWQCAEBwIioEMQBgSAFhDAGghGi9XgHAhMNoSZgJkJei33UESv2+/4vD4TAQA7" />
         </div>
-        <div id="textBox" contenteditable="true"> <p> Однажды в студёную, зимнюю пору... </p></div>
-        </form>
+    </form>
+
+
+    <div id="math" class="border border-2">
+        <div contentEditable="true" class="tex2jax_ignore" id="math_input"></div>
+        <div id="math_look"></div>
+    </div>
+
+   <div class="row justify-content-center my-3">
+        <div class="col-2 text-center">
+            <button type="button" class="btn btn-primary" id="save">
+                Сохранить
+            </button>
+        </div>
+        <div class="col-2">
+            <input type="checkbox" id="public" name="public" {% if article.public %}checked {% endif %}>
+            <label for="public">Опубликовать</label>
+        </div>
+    </div>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="done_save" class="toast hide bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header ">
+                <strong class="me-auto">Сохранение статьи</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body bg-light">
+                Статья успешно сохранена.
+            </div>
+        </div>
+    </div>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="fail_safe" class="toast hide bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Сохранение статьи</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body bg-light">
+                Произошла ошибка при сохранении статьи.
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
 
 {% block script %}
-    <script src="{% static 'card/LaTex_settings.js' %}"></script>
-    <script src="{% static 'card/math.js' %}"></script>
+    <script src="{% static 'card/js/LaTex_settings.js' %}"></script>
+    <script src="{% static 'card/js/math.js' %}"></script>
+    <script src="{% static 'card/js/new_article.js' %}"></script>
 {% endblock %}
